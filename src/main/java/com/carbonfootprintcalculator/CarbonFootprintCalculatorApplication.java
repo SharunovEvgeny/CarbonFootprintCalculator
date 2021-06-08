@@ -1,20 +1,35 @@
 package com.carbonfootprintcalculator;
 
-import org.springframework.boot.SpringApplication;
+
+import com.carbonfootprintcalculator.controllers.ConfigurationControllers;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @SpringBootApplication
-@RestController
-public class CarbonFootprintCalculatorApplication {
+public class CarbonFootprintCalculatorApplication extends AbstractJavaFxApplicationSupport {
 
-  public static void main(String[] args) {
-    SpringApplication.run(CarbonFootprintCalculatorApplication.class, args);
-  }
+	@Value("${ui.title:JavaFX приложение}")//
+	private String windowTitle;
 
-  @RequestMapping("/")
-  public String home() {
-    return "Hello Test";
-  }
+	@Autowired
+	private ConfigurationControllers.ViewHolder view;
+
+	@Override
+	public void start(Stage stage) throws Exception {
+		stage.setTitle(windowTitle);
+		stage.setScene(new Scene(view.getView()));
+		stage.setResizable(true);
+		stage.centerOnScreen();
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launchApp(CarbonFootprintCalculatorApplication.class, args);
+	}
+
 }
