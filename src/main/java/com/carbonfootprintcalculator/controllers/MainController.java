@@ -1,23 +1,26 @@
 package com.carbonfootprintcalculator.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
+import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+@Component
+@FxmlView("/view/main.fxml")
 public class MainController {
 	@Autowired
-	private ConfigurationControllers.ViewHolder view;
+	FxWeaver fxWeaver;
 	@FXML
 	private ResourceBundle resources;
 
@@ -31,19 +34,10 @@ public class MainController {
 	void initialize() {
 		startButton.setOnAction(event -> {
 			startButton.getScene().getWindow().hide();
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("resources/fxml/calculatorElectricityEmissions"));
-			try {
-				loader.load();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-						Parent parent = loader.getRoot();
-			view.setView(parent);
-
-//			Stage stage = new Stage();
-//			stage.setScene(new Scene(parent));
-//			stage.showAndWait();
+			Parent root = fxWeaver.loadView(CalculatorElectricityEmissionsController.class);
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root));
+			stage.showAndWait();
 		});
 	}
 }

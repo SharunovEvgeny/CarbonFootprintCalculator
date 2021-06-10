@@ -21,5 +21,10 @@
             <Font name="Laksaman" size="39.0" />
          </font>
       </Button>
+      <Label layoutX="25.0" layoutY="359.0" prefHeight="19.0" prefWidth="551.0" text="Все данные указывать из затрат в год только для одного человека" textFill="#a950d9">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

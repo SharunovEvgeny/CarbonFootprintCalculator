@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="649.0" style="-fx-background-color: #7FDFAE;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbonfootprintcalculator.controllers.CalculatorLifeEmissionsController">
+  <children>
+    <AnchorPane prefHeight="95.0" prefWidth="600.0" style="-fx-background-color: #3BD987;">
+      <children>
+        <Label layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="633.0" text="Калькулятор углеродного следа" textAlignment="CENTER" textFill="#a950d9" textOverrun="WORD_ELLIPSIS">
+          <font>
+            <Font name="KacstBook" size="36.0" />
+          </font>
+        </Label>
+      </children>
+    </AnchorPane>
+    <Button fx:id="nextButton" layoutX="502.0" layoutY="421.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="133.0" style="-fx-background-color: #25D97C; -fx-background-radius: 20;" text="Далее" textFill="#a950d9">
+      <font>
+        <Font name="Laksaman" size="28.0" />
+      </font>
+    </Button>
+      <Label layoutX="8.0" layoutY="77.0" prefHeight="67.0" prefWidth="633.0" text="Как много вы тратите на развлечения?" textAlignment="RIGHT" textFill="#a950d9" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="KacstBook" size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="421.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="133.0" style="-fx-background-color: #25D97C; -fx-background-radius: 20;" text="Назад" textFill="#a950d9">
+         <font>
+            <Font name="Laksaman" size="28.0" />
+         </font>
+      </Button>
+      <Button fx:id="calculateButton" layoutX="386.0" layoutY="187.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="247.0" style="-fx-background-color: #25D97C; -fx-background-radius: 20;" text="Рассчитать" textFill="#a950d9">
+         <font>
+            <Font name="Laksaman" size="28.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="getAboveAverage" layoutX="11.0" layoutY="136.0" mnemonicParsing="false" text="Выше среднего" textFill="#a950d9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="getAverage" layoutX="12.0" layoutY="174.0" mnemonicParsing="false" text="Средне" textFill="#a950d9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="getBelowAverage" layoutX="13.0" layoutY="210.0" mnemonicParsing="false" text="Ниже среднего" textFill="#a950d9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="getMuchBelowAverage" layoutX="14.0" layoutY="248.0" mnemonicParsing="false" text="Сильно ниже среднего" textFill="#a950d9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="13.0" layoutY="292.0" prefHeight="40.0" prefWidth="420.0" text="Количество выделяемого CO2 в КГ" textAlignment="RIGHT" textFill="#a950d9" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="KacstBook" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="postCO2" layoutX="11.0" layoutY="332.0" prefHeight="40.0" prefWidth="377.0" promptText="0" style="-fx-background-color: #1ED9E7; -fx-border-radius: 5; -fx-border-color: silver; -fx-background-radius: 10;" text="0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+  </children>
+</AnchorPane>

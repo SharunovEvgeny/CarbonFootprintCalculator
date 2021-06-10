@@ -1,9 +1,7 @@
 package com.carbonfootprintcalculator.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.carbonfootprintcalculator.services.CalculatorElectricityEmissionsService;
+import com.carbonfootprintcalculator.services.CalculatorGasEmissionsService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,11 +13,14 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
-@FxmlView("/view/calculatorElectricityEmissions.fxml")
-public class CalculatorElectricityEmissionsController {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-  @Autowired CalculatorElectricityEmissionsService calculatorElectricityEmissionsService;
+@Component
+@FxmlView("/view/calculatorGasEmissions.fxml")
+public class CalculatorGasEmissionsController {
+
+  @Autowired CalculatorGasEmissionsService calculatorGasEmissionsService;
 
   @Autowired FxWeaver fxWeaver;
 
@@ -48,7 +49,7 @@ public class CalculatorElectricityEmissionsController {
     backButton.setOnAction(
         event -> {
           backButton.getScene().getWindow().hide();
-          Parent root = fxWeaver.loadView(MainController.class);
+          Parent root = fxWeaver.loadView(CalculatorElectricityEmissionsController.class);
           Stage stage = new Stage();
           stage.setScene(new Scene(root));
           stage.show();
@@ -71,7 +72,7 @@ public class CalculatorElectricityEmissionsController {
             return;
           }
           postCO2.setText(
-              String.valueOf(calculatorElectricityEmissionsService.calculateAllEmissions(value)));
+              String.valueOf(calculatorGasEmissionsService.calculateAllEmissions(value)));
         });
   }
 
@@ -79,7 +80,7 @@ public class CalculatorElectricityEmissionsController {
     nextButton.setOnAction(
         event -> {
           nextButton.getScene().getWindow().hide();
-          Parent root = fxWeaver.loadView(CalculatorGasEmissionsController.class);
+          Parent root = fxWeaver.loadView(CalculatorCarEmissionsController.class);
           Stage stage = new Stage();
           stage.setScene(new Scene(root));
           stage.show();

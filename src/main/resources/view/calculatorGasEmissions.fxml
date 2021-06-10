@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="649.0" style="-fx-background-color: #7FDFAE;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbonfootprintcalculator.controllers.CalculatorGasEmissionsController">
+  <children>
+    <AnchorPane prefHeight="95.0" prefWidth="600.0" style="-fx-background-color: #3BD987;">
+      <children>
+        <Label layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="633.0" text="Калькулятор углеродного следа" textAlignment="CENTER" textFill="#a950d9" textOverrun="WORD_ELLIPSIS">
+          <font>
+            <Font name="KacstBook" size="36.0" />
+          </font>
+        </Label>
+      </children>
+    </AnchorPane>
+    <Button fx:id="nextButton" layoutX="502.0" layoutY="421.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="133.0" style="-fx-background-color: #25D97C; -fx-background-radius: 20;" text="Далее" textFill="#a950d9">
+      <font>
+        <Font name="Laksaman" size="28.0" />
+      </font>
+    </Button>
+      <TextField fx:id="getKWH" layoutX="29.0" layoutY="206.0" prefHeight="40.0" prefWidth="256.0" promptText="0" style="-fx-background-color: #1ED9E7; -fx-border-radius: 5; -fx-border-color: silver; -fx-background-radius: 10;" text="0">
+         <font>
+            <Font size="17.0" />
+         </font></TextField>
+      <Label layoutX="7.0" layoutY="103.0" prefHeight="103.0" prefWidth="633.0" text="Сколько газа используется в вашем доме?" textAlignment="RIGHT" textFill="#a950d9" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="KacstBook" size="22.0" />
+         </font>
+      </Label>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Label layoutX="7.0" layoutY="247.0" prefHeight="103.0" prefWidth="420.0" text="Количество выделяемого CO2 в КГ" textAlignment="RIGHT" textFill="#a950d9" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="KacstBook" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="postCO2" layoutX="29.0" layoutY="350.0" prefHeight="40.0" prefWidth="377.0" promptText="0" style="-fx-background-color: #1ED9E7; -fx-border-radius: 5; -fx-border-color: silver; -fx-background-radius: 10;" text="0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="421.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="133.0" style="-fx-background-color: #25D97C; -fx-background-radius: 20;" text="Назад" textFill="#a950d9">
+         <font>
+            <Font name="Laksaman" size="28.0" />
+         </font>
+      </Button>
+      <Button fx:id="calculateButton" layoutX="386.0" layoutY="187.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="247.0" style="-fx-background-color: #25D97C; -fx-background-radius: 20;" text="Рассчитать" textFill="#a950d9">
+         <font>
+            <Font name="Laksaman" size="28.0" />
+         </font>
+      </Button>
+  </children>
+</AnchorPane>

@@ -21,19 +21,28 @@ public class CalculatorCarEmissions implements Calculable {
   @Column(name = "liter_per_100km", nullable = false)
   private int literPer100km;
 
+  @Column(name = "number_km", nullable = false)
+  private int numberKm;
+
   public CalculatorCarEmissions() {}
 
-  public CalculatorCarEmissions(int literPer100km) {
+  @Column(name = "CO2", nullable = false)
+  private int co2;
+
+  public CalculatorCarEmissions(int literPer100km, int numberKm) {
 
     this.literPer100km = literPer100km;
+    this.numberKm = numberKm;
   }
 
   @Override
   public int calculateEmissions() {
-    return (int)
-        Math.round(
-            (getLiterPer100km() * getEmissionsCoefficient()) * 10
-                + getIndirectEmissionsCoefficient() * getLiterPer100km() * 10);
+    setCo2(
+        (int)
+            Math.round(
+                (getLiterPer100km() * getEmissionsCoefficient()) * getNumberKm()
+                    + getIndirectEmissionsCoefficient() * getLiterPer100km() * getNumberKm()));
+    return getCo2();
   }
 
   @Override
@@ -41,7 +50,21 @@ public class CalculatorCarEmissions implements Calculable {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CalculatorCarEmissions that = (CalculatorCarEmissions) o;
-    return literPer100km == that.literPer100km && id.equals(that.id);
+    return literPer100km == that.literPer100km && numberKm == that.numberKm && id.equals(that.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        id, emissionsCoefficient, indirectEmissionsCoefficient, literPer100km, numberKm);
+  }
+
+  public int getNumberKm() {
+    return numberKm;
+  }
+
+  public void setNumberKm(int numberKm) {
+    this.numberKm = numberKm;
   }
 
   @Override
@@ -55,12 +78,17 @@ public class CalculatorCarEmissions implements Calculable {
         + indirectEmissionsCoefficient
         + ", literPer100km="
         + literPer100km
+        + ", numberKm="
+        + numberKm
         + '}';
   }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, emissionsCoefficient, indirectEmissionsCoefficient, literPer100km);
+  public int getCo2() {
+    return co2;
+  }
+
+  public void setCo2(int co2) {
+    this.co2 = co2;
   }
 
   public Long getId() {
