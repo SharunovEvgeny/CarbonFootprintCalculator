@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.carbonfootprintcalculator.entities.FoodType;
 import com.carbonfootprintcalculator.services.CalculatorFoodEmissionsService;
+import com.carbonfootprintcalculator.services.SessionService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Component;
 @FxmlView("/view/calculatorFoodEmissions.fxml")
 public class CalculatorFoodEmissionsController {
   @Autowired FxWeaver fxWeaver;
+  @Autowired SessionService sessionService;
   @Autowired CalculatorFoodEmissionsService calculatorFoodEmissionsService;
   @FXML private ResourceBundle resources;
 
@@ -98,6 +100,12 @@ public class CalculatorFoodEmissionsController {
   private void nextButtonAction() {
     nextButton.setOnAction(
         event -> {
+          int value = 0;
+          try {
+            value = Integer.parseInt(postCO2.getText());
+          } catch (Exception ignored) {
+          }
+          sessionService.addSessionFoodEmissionsCo2(value);
           nextButton.getScene().getWindow().hide();
           Parent root = fxWeaver.loadView(CalculatorLifeEmissionsController.class);
           Stage stage = new Stage();

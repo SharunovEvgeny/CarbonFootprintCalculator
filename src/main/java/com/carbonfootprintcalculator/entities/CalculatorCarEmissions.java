@@ -13,10 +13,10 @@ public class CalculatorCarEmissions implements Calculable {
   private Long id;
 
   @Column(name = "emissions_coefficient", nullable = false)
-  private final double emissionsCoefficient = 2.32;
+  private final double emissionsCoefficient = 0.0232;
 
   @Column(name = "indirect_emissions_coefficient", nullable = false)
-  private final double indirectEmissionsCoefficient = 0.41;
+  private final double indirectEmissionsCoefficient = 0.0041;
 
   @Column(name = "liter_per_100km", nullable = false)
   private int literPer100km;

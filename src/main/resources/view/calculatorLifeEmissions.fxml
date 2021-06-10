@@ -16,7 +16,7 @@
         </Label>
       </children>
     </AnchorPane>
-    <Button fx:id="nextButton" layoutX="502.0" layoutY="421.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="133.0" style="-fx-background-color: #25D97C; -fx-background-radius: 20;" text="Далее" textFill="#a950d9">
+    <Button fx:id="nextButton" layoutX="424.0" layoutY="421.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="211.0" style="-fx-background-color: #25D97C; -fx-background-radius: 20;" text="Закончить" textFill="#a950d9">
       <font>
         <Font name="Laksaman" size="28.0" />
       </font>

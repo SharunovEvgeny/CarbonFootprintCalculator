@@ -2,6 +2,7 @@ package com.carbonfootprintcalculator.controllers;
 
 import com.carbonfootprintcalculator.services.CalculatorElectricityEmissionsService;
 import com.carbonfootprintcalculator.services.CalculatorGasEmissionsService;
+import com.carbonfootprintcalculator.services.SessionService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +20,7 @@ import java.util.ResourceBundle;
 @Component
 @FxmlView("/view/calculatorGasEmissions.fxml")
 public class CalculatorGasEmissionsController {
-
+  @Autowired SessionService sessionService;
   @Autowired CalculatorGasEmissionsService calculatorGasEmissionsService;
 
   @Autowired FxWeaver fxWeaver;
@@ -79,6 +80,12 @@ public class CalculatorGasEmissionsController {
   private void nextButtonAction() {
     nextButton.setOnAction(
         event -> {
+          int value = 0;
+          try {
+            value = Integer.parseInt(postCO2.getText());
+          } catch (Exception ignored) {
+          }
+          sessionService.addSessionGasEmissionsCo2(value);
           nextButton.getScene().getWindow().hide();
           Parent root = fxWeaver.loadView(CalculatorCarEmissionsController.class);
           Stage stage = new Stage();

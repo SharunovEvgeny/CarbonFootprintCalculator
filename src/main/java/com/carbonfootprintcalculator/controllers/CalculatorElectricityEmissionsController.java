@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.carbonfootprintcalculator.services.CalculatorElectricityEmissionsService;
+import com.carbonfootprintcalculator.services.SessionService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +21,7 @@ import org.springframework.stereotype.Component;
 public class CalculatorElectricityEmissionsController {
 
   @Autowired CalculatorElectricityEmissionsService calculatorElectricityEmissionsService;
-
+  @Autowired SessionService sessionService;
   @Autowired FxWeaver fxWeaver;
 
   @FXML private ResourceBundle resources;
@@ -78,6 +79,12 @@ public class CalculatorElectricityEmissionsController {
   private void nextButtonAction() {
     nextButton.setOnAction(
         event -> {
+          int value = 0;
+          try {
+            value = Integer.parseInt(postCO2.getText());
+          } catch (Exception ignored) {
+          }
+          sessionService.addSessionElectricityEmissionsCo2(value);
           nextButton.getScene().getWindow().hide();
           Parent root = fxWeaver.loadView(CalculatorGasEmissionsController.class);
           Stage stage = new Stage();

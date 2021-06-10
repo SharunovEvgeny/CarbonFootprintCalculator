@@ -2,6 +2,7 @@ package com.carbonfootprintcalculator.controllers;
 
 import com.carbonfootprintcalculator.entities.LifeType;
 import com.carbonfootprintcalculator.services.CalculatorLifeEmissionsService;
+import com.carbonfootprintcalculator.services.SessionService;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,6 +24,7 @@ import java.util.ResourceBundle;
 public class CalculatorLifeEmissionsController {
   @Autowired FxWeaver fxWeaver;
   @Autowired CalculatorLifeEmissionsService calculatorLifeEmissionsService;
+  @Autowired SessionService sessionService;
   @FXML private ResourceBundle resources;
 
   @FXML private URL location;
@@ -102,8 +104,14 @@ public class CalculatorLifeEmissionsController {
   private void nextButtonAction() {
     nextButton.setOnAction(
         event -> {
+          int value=0;
+          try{
+            value=Integer.parseInt(postCO2.getText());
+          }catch(Exception ignored){
+          }
+          sessionService.addSessionLifeEmissionsCo2(value);
           nextButton.getScene().getWindow().hide();
-          Parent root = fxWeaver.loadView(CalculatorFoodEmissionsController.class);
+          Parent root = fxWeaver.loadView(FinalController.class);
           Stage stage = new Stage();
           stage.setScene(new Scene(root));
           stage.show();
