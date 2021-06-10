@@ -1,2 +1,2 @@
 Ссылка на видеоурок на ютубе:
-https://youtu.be/Ok2g5MPcDTc
+https://youtu.be/2yjRn9H6gfw
